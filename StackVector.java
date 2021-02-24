@@ -1,30 +1,28 @@
 //importando clases externas
-import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * @author Marco Orozco
  * @author Javier Mombiela
- *  StackArrayList.java hereda las funciones de abstact
+ *  StackVector.java hereda las funciones de abstract
  */
+public class StackVector<E> extends AbstractSack<E> {
 
-public class StackArrayList<E> extends AbstractSack<E> {
-
-    //creando arraylist
-    protected ArrayList<E> data;
+   //creando el vector
+	protected Vector<E> data;
 
 
     /**
-     * Metodo para crear un arraylist vacio
+     * Metodo para crear un stack vacio
      * @param 
      */
-    public StackArrayList() {
+	public StackVector()
+	{
+		data = new Vector<E>();
+	}
 
-        //instanciando la arraylist
-        data = new ArrayList<E>();
 
-    }
-
-   /**
+    /**
      * Metodo para agregar un nuevo item al tope del stack
      * @param item
      */
@@ -48,7 +46,7 @@ public class StackArrayList<E> extends AbstractSack<E> {
     /**
      * Metodo para ver el elemento de hasta arriba
      * @param 
-     * @return el elemento de hasta arriba de la lista
+     * @return el elemento de hasta arriba de la stack
      */
     @Override
 	public E peek()
@@ -59,11 +57,11 @@ public class StackArrayList<E> extends AbstractSack<E> {
     /**
      * Metodo para ver el tamano del stack
      * @param 
-     * @return un int con el numero de elementos en la lista
+     * @return un int con el numero de elementos en el stack
      */
     @Override
 	public int size()
-	// para ver el numero de elemetnos en la lista
+	// para ver el numero de elementos en el vector
 	{
 		return data.size();
 	}
