@@ -1,42 +1,23 @@
 /**
  * @author Marco Orozco
- * @author Javier Mombiela
- * interface Stack.java tiene las funciones de un stack
+ * @version 1.02 Esta interfaz es para usarla en Stackvector
  */
+public interface Stack<T> {
+    void Push(T info);
 
-public interface Stack<E> 
-{
+    // post:Agregar el dato al stack
+    T Pop();
 
-    /**
-     * Metodo push
-     * @param item Parametro para ver que item se agrega a la fila
-     */
-   public void push(E item);
-   
-   
-    /**
-     * Metodo pop, para remover el item de arriba del stack
-     * @param 
-     */
-   public E pop();
-   
-    /**
-     * Metodo peek, para ver el item de arriba del stack
-     * @param 
-     */
-   public E peek();
-  
-    /**
-     * Metodo empty, para ver si el stack esta vacio o no
-     * @param 
-     */
-   public boolean empty();
-   
-    /**
-     * Metodo size, para ver el tamano del stack
-     * @param 
-     */
-   public int size();
-   
+    // pre:revisar que no este vacio
+    // pos: eliminar un elemento del stack
+    T Peek();
+
+    // pre: revisar que el stack no este vacio
+    // post: muestra el stack mas reciente
+    int Size();
+
+    // post: regresa el tamano del stack
+    boolean Empty();
+    // post: true si esta vacio el stack
 
 }

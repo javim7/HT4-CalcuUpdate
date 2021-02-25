@@ -1,81 +1,66 @@
-//importando clases externas
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
- * @author Marco Orozco
- * @author Javier Mombiela
- *  StackVector.java hereda las funciones de abstract
+ * @author: Marco Orozco
+ * @version 1.02 Esta clase es la implementaciond e un vector a mi estilo
  */
-public class StackVector<E> extends AbstractSack<E> {
 
-   //creando el vector
-	protected Vector<E> data;
+public class StackVector<T> implements Stack<T> {
 
-
-    /**
-     * Metodo para crear un stack vacio
-     * @param 
-     */
-	public StackVector()
-	{
-		data = new Vector<E>();
-	}
-
+    public ArrayList<T> lista = new ArrayList<T>();
 
     /**
-     * Metodo para agregar un nuevo item al tope del stack
-     * @param item
+     * @param info
      */
-    @Override
-	public void push(E item)
-	{
-		data.add(item);
-	}
-
-    /**
-     * Metodo para remover el item de hasta arriba
-     * @param 
-     * @return el elemento que saco del vector
-     */
-    @Override
-	public E pop()
-	{
-		return data.remove(size()-1);
-	}
-
-    /**
-     * Metodo para ver el elemento de hasta arriba
-     * @param 
-     * @return el elemento de hasta arriba de la stack
-     */
-    @Override
-	public E peek()
-	{
-		return data.get(size() - 1);
-	}
-    
-    /**
-     * Metodo para ver el tamano del stack
-     * @param 
-     * @return un int con el numero de elementos en el stack
-     */
-    @Override
-	public int size()
-	// para ver el numero de elementos en el vector
-	{
-		return data.size();
-	}
-  
-    /**
-     * Metodo para ver si el stack esta vacio o no
-     * @param 
-     * @return se retorna true si stack esta vacia
-     */
-    @Override
-	public boolean empty()
-	
-	{
-		return size() == 0;
+    // Metodo para meter elementos
+    public void Push(T info) {
+        // Se añade un valor
+        lista.add(info);
     }
-    
+
+    /**
+     * @return T
+     */
+    public T Pop() {
+
+        // Se obtiene un elemento
+        int index = lista.size() - 1;
+
+        // Se guarda ese elemento en una variable para posteriormente eliminarlo y
+        // devolverlo
+        T elemento = lista.get(index);
+        lista.remove(index);
+        return elemento;
+    }
+
+    /**
+     * @return boolean
+     */
+    public boolean Empty() {
+
+        // Devuelve un false si la lista tiene un elemento
+
+        return lista.isEmpty();
+    }
+
+    /**
+     * @return T
+     */
+    public T Peek() {
+
+        // Se devuelve el ultimo valor de la lista
+
+        int index = lista.size() - 1;
+        return lista.get(index);
+    }
+
+    /**
+     * @return int
+     */
+    public int Size() {
+
+        // Se devuelve el tamaño del almacenamiento del stackvector
+
+        return lista.size();
+    }
 }
