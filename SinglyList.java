@@ -6,6 +6,8 @@
 
 public class SinglyList<E> extends AbstractSack<E> {
 
+    
+
     @Override
     public void push(E item) {
         // TODO Auto-generated method stub
