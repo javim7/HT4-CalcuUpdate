@@ -19,7 +19,7 @@ public class Driver {
         ArrayList<String> stack = new ArrayList<String>();
         try {
             FileReader f = new FileReader(
-                    "C:\\Users\\sonic\\Documents\\Universidad\\3er semestre\\Estructuras de datos\\Infix_Postfix\\Datos.txt");
+                    "C:\\Users\\sonic\\Desktop\\HT4-CalcuUpdate-master\\Datos.txt");
             BufferedReader r = new BufferedReader(f);
 
             String cadena;

@@ -16,8 +16,8 @@ public class Calculadora implements CalculadoraGeneral {
     private static Calculadora calculator;
 
     // Listas para el trabajo de los numeros
-    Stack<String> sign;
-    Stack<Float> numbers;
+    AbstractSack<String> sign;
+    AbstractSack<Float> numbers;
 
     // Instancia de factory que creara las listas
     StackFactory creadorStacks = new StackFactory();
@@ -43,12 +43,12 @@ public class Calculadora implements CalculadoraGeneral {
 
     // Metodo para vaciar las listas y reutilizarlas para la siguiente operacion
     public void vaciarListas(){
-        for (int i = 0; i < sign.Size(); i++) {
-            sign.Pop();   
+        for (int i = 0; i < sign.size(); i++) {
+            sign.pop();   
         }
 
-        for (int j = 0; j < sign.Size(); j++) {
-            numbers.Pop();   
+        for (int j = 0; j < sign.size(); j++) {
+            numbers.pop();   
         }
     }
 
@@ -83,22 +83,22 @@ public class Calculadora implements CalculadoraGeneral {
         for (int j = 0; j < ops.size(); j++) {
             try {// En caso de ser un numero lo convertiraa y lo metera a los numeros
                 float number = Float.parseFloat(ops.get(j));
-                numbers.Push(number);
+                numbers.push(number);
             } catch (Exception ex) {// En caso de no ser un numero se activara la excepcion y se tomara el texto
-                sign.Push(ops.get(j));
+                sign.push(ops.get(j));
                 // Primero se comprueba que los numeros no excedan la capacidad de las
                 // operaciones
-                int verifier = numbers.Size() - sign.Size();
+                int verifier = numbers.size() - sign.size();
                 if (verifier > 2) {
                     return "No se puede operar, hay demasiados numeros";
                 }
                 try {
                     // Extraer los numeros
-                    float num1 = numbers.Pop();
-                    float num2 = numbers.Pop();
+                    float num1 = numbers.pop();
+                    float num2 = numbers.pop();
 
                     // Extraer el signo que se acaba de detectar
-                    String operando = sign.Pop();
+                    String operando = sign.pop();
                     // Verificar cual es el signo
                     if (operando.equalsIgnoreCase("+")) {
                         continuacion = num2 + num1;
@@ -109,11 +109,11 @@ public class Calculadora implements CalculadoraGeneral {
                     } else if (operando.equalsIgnoreCase("/")) {
                         continuacion = num2 / num1;
                     }
-                    numbers.Push(continuacion);
+                    numbers.push(continuacion);
                 } catch (Exception e) {// En caso de no haber numeros suficientes se agrega otro automaticamente
                     try {
                         float number = Float.parseFloat(ops.get(j));
-                        numbers.Push(number);
+                        numbers.push(number);
                     } catch (Exception r) {// Esta se activa por si ya no quedan numeros y tira el codigo de error
                         return "No se puede operar, hay un error de signos";
                     }
@@ -149,7 +149,7 @@ public class Calculadora implements CalculadoraGeneral {
         String result = new String(""); 
           
         // initializing empty stack 
-        Stack<Character> stack = new StackVector<Character>(); 
+        AbstractSack<Character> stack = new StackArrayList<Character>(); 
           
         for (int i = 0; i<exp.length(); ++i) 
         { 
@@ -163,36 +163,36 @@ public class Calculadora implements CalculadoraGeneral {
             // If the scanned character is an '(',  
             // push it to the stack. 
             else if (c == '(') 
-                stack.Push(c); 
+                stack.push(c); 
               
             //  If the scanned character is an ')',  
             // pop and output from the stack  
             // until an '(' is encountered. 
             else if (c == ')') 
             { 
-                while (!stack.Empty() &&  
-                        stack.Peek() != '(') 
-                    result += stack.Pop(); 
+                while (!stack.empty() &&  
+                        stack.peek() != '(') 
+                    result += stack.pop(); 
                   
-                    stack.Pop(); 
+                    stack.pop(); 
             } 
             else // an operator is encountered 
             { 
-                while (!stack.Empty() && Prec(c)  
-                         <= Prec(stack.Peek())){ 
+                while (!stack.empty() && Prec(c)  
+                         <= Prec(stack.peek())){ 
                     
-                    result += stack.Pop(); 
+                    result += stack.pop(); 
              } 
-                stack.Push(c);
+                stack.push(c);
             } 
        
         } 
        
         // pop all the operators from the stack 
-        while (!stack.Empty()){ 
-            if(stack.Peek() == '(') 
+        while (!stack.empty()){ 
+            if(stack.peek() == '(') 
                 return "Invalid Expression"; 
-            result += stack.Pop(); 
+            result += stack.pop(); 
          } 
         return result; 
     }

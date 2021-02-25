@@ -1,21 +1,21 @@
 public class StackFactory {
     // lista que va a devolver pero no se ha iniciado
-    Stack<String> stackString;
-    Stack<Float> stackFloat;
+    AbstractSack<String> stackString;
+    AbstractSack<Float> stackFloat;
 
     // Metodo que se encarga de generar el stack de String
-    public Stack<String> generateStackString(int opcion){
+    public AbstractSack<String> generateStackString(int opcion){
         if(opcion == 1){
-            stackString = new StackVector<String>();
+            stackString = new StackArrayList<String>();
         }
 
         return stackString;
     }
 
     // Metodo que se encarga de generar el stack de float
-    public Stack<Float>generateStackFloat(int opcion){
+    public AbstractSack<Float>generateStackFloat(int opcion){
         if(opcion == 1){
-            stackFloat = new StackVector<Float>();
+            stackFloat = new StackArrayList<Float>();
         }
 
         return stackFloat;
