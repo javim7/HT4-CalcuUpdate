@@ -41,7 +41,7 @@ public class Driver {
         
 
         for (int expresion = 0; expresion < stack.size(); expresion++) {
-            c.generarStacks(1);
+            c.generarStacks(2);
             System.out.println("\nExpresion pasada a postfix:");
             String expresionActual = c.infixToPostfix(stack.get(expresion));
             System.out.println(expresionActual + "\n");

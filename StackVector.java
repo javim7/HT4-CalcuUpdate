@@ -5,7 +5,7 @@ import java.util.Vector;
  * @version 1.02 Esta clase es la implementaciond e un vector a mi estilo
  */
 
-public class StackVector<E> implements Stack<E> {
+public class StackVector<E> extends AbstractSack<E> {
 
     public Vector<E> lista = new Vector<E>();
 
