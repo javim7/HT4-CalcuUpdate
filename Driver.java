@@ -19,7 +19,7 @@ public class Driver {
         ArrayList<String> stack = new ArrayList<String>();
         try {
             FileReader f = new FileReader(
-                    "C:\\Users\\sonic\\Desktop\\HT4-CalcuUpdate-master\\Datos.txt");
+                    "Datos.txt");
             BufferedReader r = new BufferedReader(f);
 
             String cadena;

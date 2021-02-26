@@ -1,41 +1,64 @@
+//importando clases externas
+import java.util.*;
+
 /**
  * @author Marco Orozco
- * @author Javier Mombiela
- *  DoublyList.java hereda las funciones de abstract
+ * @author Javier Mombiela SinglyList.java hereda las funciones de abstract
+ * SinglyList.java extiendo los metodos de abstracts lsit
  */
 
-public class DoublyList<E> extends AbstractSack<E> {
+public class DoublyList<E> extends AbstractList<E> {
 
-    @Override
-    public void push(E item) {
-        // TODO Auto-generated method stub
+  //creando variables
+  LinkedList<E> lista;
+  int count;
 
-    }
+    public DoublyList()
+   // post: generates an empty list
+   {
+    lista = new LinkedList<E>();
 
-    @Override
-    public E pop() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public E peek() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public boolean empty() {
-        // TODO Auto-generated method stub
-        return false;
-    }
+   }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        return 0;
+     // post: returns number of elements in list
+    return lista.size();
+  }
+
+    @Override
+    public boolean isEmpty() {
+        // post: returns true iff list has no elements
+        boolean vacia = false;
+        if(lista.isEmpty()) {
+            vacia = true;
+        } else{
+            vacia = false;
+        }
+        return vacia;
     }
+
+    @Override
+    public void add(E value){
+        // post: value is added to beginning of list
+        lista.add(value);
+     
+  }
+
+    @Override
+    public E getLast() {
+        // pre: list is not empty
+   // post: returns last value in list
+        return lista.getLast();
+    }
+
+    @Override
+    public E remove() {
+        // pre: list has at least one element
+   // post: removes last value found in list
+        return lista.removeLast();
+    }
+
+    
     
 }
-    
-
