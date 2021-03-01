@@ -27,6 +27,10 @@ public class Calculadora implements CalculadoraGeneral {
         numero++;
     }
 
+    
+    /** 
+     * @return Calculadora
+     */
     // Metodo para devolver la unica instancia de calculadora
     static public Calculadora getInstance(){
         if(calculator == null){
@@ -35,6 +39,10 @@ public class Calculadora implements CalculadoraGeneral {
         return calculator;
     }
 
+    
+    /** 
+     * @param opcion
+     */
     // Metodo para generar las listas
     public void generarStacks(int opcion){
         sign = creadorStacks.generateStackString(opcion);
@@ -52,6 +60,10 @@ public class Calculadora implements CalculadoraGeneral {
         }
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getNumero() {
         return numero;
     }
@@ -124,6 +136,11 @@ public class Calculadora implements CalculadoraGeneral {
         return resultado;
     }
 
+    
+    /** 
+     * @param ch
+     * @return int
+     */
     // Codigo para convertir a Postfix
     static int Prec(char ch) 
     { 
@@ -143,6 +160,11 @@ public class Calculadora implements CalculadoraGeneral {
         return -1; 
     }
 
+    
+    /** 
+     * @param exp
+     * @return String
+     */
     static String infixToPostfix(String exp) 
     { 
         // initializing empty String for result 
