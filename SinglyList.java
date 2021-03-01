@@ -1,4 +1,3 @@
-
 //importando clases externas
 import java.util.*;
 
@@ -63,3 +62,4 @@ public class SinglyList<E> extends AbstractList<E> {
     
     
 }
+

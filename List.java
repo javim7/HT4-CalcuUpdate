@@ -23,5 +23,4 @@ public interface List<E> {
     public E remove();
       // pre: list has at least one element
    // post: removes last value found in list
-    
 }
