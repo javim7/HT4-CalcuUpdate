@@ -52,14 +52,14 @@ public class Tests {
      @Test
      public void testPila2() {
          pila.push(8);
-         assertEquals(pila.pop(), 8);
+         assertEquals(pila.pop(), "8");
      }
  
      // Test de push y peek
      @Test
      public void testPila3() {
          pila.push(5);
-         assertEquals(pila.peek(), 5);
+         assertEquals(pila.peek(), "5");
      }
 
      
@@ -75,14 +75,14 @@ public class Tests {
      @Test
      public void testLista2() {
          pila.push(8);
-         assertEquals(lista.remove(), 8);
+         assertEquals(lista.remove(), "8");
      }
  
      // Test de add y getLast
      @Test
      public void testLista3() {
          pila.push(5);
-         assertEquals(lista.getLast(), 5);
+         assertEquals(lista.getLast(), "5");
      }
    
 }

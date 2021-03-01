@@ -23,7 +23,7 @@ public class Calculadora implements CalculadoraGeneral {
     StackFactory creadorStacks = new StackFactory();
 
     // Constructor privado para Singleton
-    private Calculadora(){
+    Calculadora(){
         numero++;
     }
 
